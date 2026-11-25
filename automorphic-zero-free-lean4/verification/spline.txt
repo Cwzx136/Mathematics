@@ -1,0 +1,8 @@
+Positive Bernstein leaves, maximal depth: 51 12
+Unweighted exact gain lower bound: 19471650636255333869224218735201881536933525651/134645929491420621001728000000000000000000000000
+Reciprocal width upper bound: 6.168703174739658
+Tilted trial reciprocal and surplus: 1541/250 2.6507738966129118e-05
+Tilted trial reciprocal and surplus: 12327/2000 1.4756220879947854e-05
+Tilted trial reciprocal and surplus: 61633/10000 1.0055080276241562e-05
+Tilted trial reciprocal and surplus: 3852/625 7.70439566614558e-06
+Tilted trial reciprocal and surplus: 6163/1000 3.0027978109204306e-06

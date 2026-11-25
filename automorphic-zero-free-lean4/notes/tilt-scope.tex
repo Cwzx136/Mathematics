@@ -1,0 +1,13 @@
+\paragraph{Formal scope of the tilted response.}
+For a finite spectral measure $\mu$ with cosine transform $h$, the
+module \texttt{TiltedWindow} uses the sum of the two positive
+pushforwards under $z\mapsto y\pm Wz$. Its cosine transform is
+$2\cos(yx)h(Wx)$. The Poisson--Laplace identity proves that
+$\int_0^\infty e^{-vx}\cos(yx)h(Wx)\,dx\ge0$ for $v>0$.
+Dominated convergence extends the result to $v=0$ for an integrable
+modulated window. The formalization cancels the two exponentials in
+the tilted kernel to obtain $v=w-a$, verifies the boundary
+integrability for the concrete quartic, and proves that a strict
+trial gain excludes every width $w\le W$ under the stated disk
+comparison. The signed comparison that produces the arithmetic
+inequality is a separate analytic input.

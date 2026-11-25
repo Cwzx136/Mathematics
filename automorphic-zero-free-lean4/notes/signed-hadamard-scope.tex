@@ -1,0 +1,46 @@
+\paragraph{The signed Hadamard interchange.}
+Let $\nu$ be a finite signed measure on the shift variable $z$.
+Suppose the real Hadamard identity at the center and for
+$|\nu|$-almost every $z$ takes the form
+\[
+ \sum_{\rho}K_\rho(z)=B(z)-D(z),\qquad
+ K_\rho(z)=\frac{\sigma-\beta}
+ {(\sigma-\beta)^2+(y+az-\gamma)^2}\ge0.
+\]
+Here the countable index includes multiplicity. If $B$ and $D$ are
+integrable against the total variation $|\nu|$, then every partial
+zero sum is dominated by the integrable right side. Integration of
+the convergent series against the two Jordan parts and subtraction
+of the center identity give
+\[
+ \int D\,d\nu-D(0)
+  = \int B\,d\nu-B(0)
+      -\sum_\rho\left(\int K_\rho\,d\nu-K_\rho(0)\right).
+\]
+The last series converges absolutely. Indeed
+$|\int K_\rho\,d\nu|\le\int K_\rho\,d|\nu|$, and the sum of the
+bounds is finite by monotone convergence. The module
+\texttt{SignedHadamard} proves this statement using the signed
+measure integral. Its arithmetic inputs are the original real
+Hadamard identities and the total-variation integrability of the
+gamma and logarithmic-derivative terms.
+For each fixed zero at real separation $v>0$, the companion
+\texttt{SignedPoisson} module identifies its signed average:
+if $\nu$ is reflection-invariant and
+$q(t)=\int\cos(tz)\,d\nu(z)$, then
+\[
+ \int \frac{v}{v^2+(y+az)^2}\,d\nu(z)
+  =\int_0^\infty e^{-vx}\cos(yx)q(ax)\,dx.
+\]
+It verifies the sign of this actual signed integral at a retained zero
+when the signed spectral law represents the prescribed tilt and the
+prior strip reaches the zero. The far-zero module proves the separate
+uniform estimate
+\[
+ \sum_{\rm far}|E_\rho|\le CM(1+D/\eta)^2
+\]
+from $|E_\rho|\le C/(L|z_\rho|^2)$, $|z_\rho|\ge\eta>0$,
+$|z_{0,\rho}-z_\rho|\le D$ and
+$\sum|z_{0,\rho}|^{-2}\le ML$ with absolute convergence. These
+hypotheses leave the integrations by parts and the arithmetic
+reference bound visible.

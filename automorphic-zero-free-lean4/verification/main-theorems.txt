@@ -1,0 +1,52 @@
+ERH.BootstrapElliptic.FactorEstimates (F : ℂ → ℂ) : Prop
+def ERH.BootstrapElliptic.FactorEstimates : (ℂ → ℂ) → Prop :=
+fun F =>
+  ∀ (η : ℝ),
+    0 < η →
+      ∃ H,
+        ∀ (β t : ℝ),
+          H ≤ Real.log |t| →
+            0 < β →
+              β < 1 →
+                F { re := β, im := t } = 0 →
+                  Real.log |t| * (1 - β) ≤ ERH.BootstrapElliptic.W →
+                    ∃ s a11 a51 a22 a82,
+                      -η ≤ s + a11 + 13978 / 1000000 * a51 + 143554 / 1000000 * a22 + 944 / 1000000 * a82 ∧
+                        s ≤
+                            ERH.BootstrapElliptic.p *
+                                ERH.BootstrapElliptic.lap (-ERH.BootstrapElliptic.d / ERH.BootstrapElliptic.W) +
+                              η ∧
+                          a11 ≤
+                              ERH.BootstrapElliptic.W / 3 + η -
+                                ERH.BootstrapElliptic.lap
+                                  (Real.log |t| * (1 - β) / ERH.BootstrapElliptic.W -
+                                    ERH.BootstrapElliptic.d / ERH.BootstrapElliptic.W) ∧
+                            a51 ≤ ERH.BootstrapElliptic.W / 3 + η ∧
+                              a22 ≤ ERH.BootstrapElliptic.W * (139 / 186) + η ∧
+                                a82 ≤ ERH.BootstrapElliptic.W * (139 / 186) + η
+ERH.BootstrapElliptic.from_factor_estimates {F : ℂ → ℂ} (he : ERH.BootstrapElliptic.FactorEstimates F) :
+  ERH.TiltedWidth.Budget F ERH.BootstrapElliptic.b ERH.BootstrapElliptic.p ERH.BootstrapElliptic.G
+    ERH.BootstrapElliptic.d ERH.BootstrapElliptic.W
+ERH.BootstrapElliptic.eventual_strip (F : ℂ → ℂ) (he : ERH.BootstrapElliptic.FactorEstimates F)
+  (reflect : ∀ (β t : ℝ), 0 < β → β < 1 → F { re := β, im := t } = 0 → F { re := 1 - β, im := t } = 0) :
+  ∃ H,
+    ∀ (β t : ℝ),
+      H ≤ Real.log |t| → 0 < β → β < 1 → F { re := β, im := t } = 0 → 10000 / 57693 < Real.log |t| * min β (1 - β)
+ERH.SquarePriorGain.certified_prior {l : ℝ} (hl : 0 < l)
+  (estimate :
+    ∀ a ∈ Set.Ioo 0 l,
+      ∀ W > 0,
+        ERH.SquarePriorGain.H ((l - a) / W) - ↑EllipticBernstein.SquarePrior.pole * ERH.SquarePriorGain.H (-a / W) ≤
+          W * ↑EllipticBernstein.SquarePrior.slope) :
+  4239 / 50000 < l
+EllipticBernstein.Tilt12.normalized_fourier_nonnegative (x θ : ℝ) (lo : -1 ≤ x) (hi : x ≤ 1) :
+  0 ≤
+    (EllipticBernstein.evalFourier x θ EllipticBernstein.Tilt12.posTable -
+        EllipticBernstein.evalFourier x θ EllipticBernstein.Tilt12.negTable) /
+      1000000
+'ERH.BootstrapElliptic.eventual_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ERH.BootstrapElliptic.rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ERH.SquarePriorGain.certified_prior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EllipticBernstein.SquarePrior.interior_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EllipticBernstein.Tilt12.normalized_fourier_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ERH.KernelRemainder.real_far_sum' depends on axioms: [propext, Classical.choice, Quot.sound]

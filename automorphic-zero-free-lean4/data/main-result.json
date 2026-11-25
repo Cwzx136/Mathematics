@@ -1,0 +1,10 @@
+{
+  "normalization": "unitary",
+  "elliptic_coefficient": "57693/10000",
+  "final_b": "101/100",
+  "final_d": "4239/50000",
+  "square_tau": "83/100",
+  "primary_table": "final_tilt12.json",
+  "prior_table": "sym2prior8.json",
+  "remarks": "Use only the entries, degree and rankCut of primary_table for this calculation. That table also records the independent 5.8872 comparison."
+}

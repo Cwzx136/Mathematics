@@ -1,0 +1,2 @@
+order 60: 58 proper subgroups, 158 subgroup/linear-character pairs, 15 distinct rows (15 Lean types), 5 original conjugacy classes; exact signed identity verified
+order 168: 178 proper subgroups, 557 subgroup/linear-character pairs, 22 distinct rows (23 Lean types), 6 original conjugacy classes; exact signed identity verified

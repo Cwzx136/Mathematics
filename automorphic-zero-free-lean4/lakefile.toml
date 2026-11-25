@@ -1,0 +1,14 @@
+name = "automorphicEdge"
+version = "0.1.0"
+defaultTargets = ["Research"]
+weakLeanArgs = ["-j2"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0493595ecd5da8ef14742febab99728f98e948e8"
+
+[[lean_lib]]
+name = "Research"
+roots = ["Research", "BernsteinCore", "BernsteinData", "BernsteinDegree20Core", "BernsteinOcticCore", "BernsteinPositivity", "Degree20Chebyshev", "Degree20ColPart0", "Degree20ColPart1", "Degree20ColPart2", "Degree20ColPart3", "Degree20ColPart4", "Degree20ColPart5", "Degree20Columns", "Degree20Cuts", "Degree20Identity", "Degree20LeafLLL", "Degree20LeafLLRL", "Degree20LeafLLRR", "Degree20LeafLRLL", "Degree20LeafLRLR", "Degree20LeafLRRL", "Degree20LeafLRRR", "Degree20Positivity", "Degree20Reflection", "Degree20Rows", "Degree20Table", "EllipticAmplifier", "EllipticEulerGain", "EllipticLocal", "EllipticPrimeReserve", "EllipticSmoothDegree20", "EllipticSmoothOctic", "EllipticTiltedOctic", "EllipticWeights", "EllipticWeyl"]
+globs = ["Research", "Research.+", "BernsteinCore", "BernsteinData", "BernsteinDegree20Core", "BernsteinOcticCore", "BernsteinPositivity", "Degree20Chebyshev", "Degree20ColPart0", "Degree20ColPart1", "Degree20ColPart2", "Degree20ColPart3", "Degree20ColPart4", "Degree20ColPart5", "Degree20Columns", "Degree20Cuts", "Degree20Identity", "Degree20LeafLLL", "Degree20LeafLLRL", "Degree20LeafLLRR", "Degree20LeafLRLL", "Degree20LeafLRLR", "Degree20LeafLRRL", "Degree20LeafLRRR", "Degree20Positivity", "Degree20Reflection", "Degree20Rows", "Degree20Table", "EllipticAmplifier", "EllipticEulerGain", "EllipticLocal", "EllipticPrimeReserve", "EllipticSmoothDegree20", "EllipticSmoothOctic", "EllipticTiltedOctic", "EllipticWeights", "EllipticWeyl"]

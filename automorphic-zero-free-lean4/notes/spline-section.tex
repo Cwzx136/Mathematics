@@ -1,0 +1,68 @@
+\section{A nonnegative Fourier window beyond the compact cosine profile}
+\label{sec:spline-window}
+For $P=473580/10^6$ and $G=219852918901/246450000000$, the compact
+cosine profile gives $H(1)-P H(0)<0.14460482$. The following
+nonnegative positive-definite window gives a strictly larger value.
+It follows, under the ordinary averaged disk inequality, that every
+reciprocal width larger than $6.168703175$ is admissible.
+
+Let $B=\mathbf1_{[-1/2,1/2]}^{*4}$ be the centered cubic cardinal
+B-spline, let $\delta=1/10$, and define the symmetric coefficients
+$c_{-j}=c_j$ by
+\begin{align*}
+(c_0,\ldots,c_6)&=(1006465526,987069148,935748540,854128173,753402878,
+639792025,522713813),\\
+(c_7,\ldots,c_{13})&=(408648335,303745284,212579151,138047603,81207938,
+41868403,17252697),\\
+(c_{14},\ldots,c_{20})&=(5175321,0,0,0,926819,419038,389327).
+\end{align*}
+Set $m=(2c_0+c_1)/3$ and
+\[
+ h(x)=m^{-1}\sum_{j=-20}^{20}c_j B(x/\delta-j),\qquad
+ H(t)=\int_0^\infty h(x)e^{-tx}\,dx.
+\]
+Then $h$ is even and nonnegative, supported on $[-11/5,11/5]$,
+and $h(0)=1$. With $\operatorname{sinc}(u)=\sin(u)/u$ continued
+at zero, its angular-frequency Fourier transform is
+\[
+ \widehat h(z)=\frac{\delta}{m}\operatorname{sinc}(\delta z/2)^4
+                Q(\delta z),\qquad
+ Q(v)=c_0+2\sum_{j=1}^{20}c_j\cos(jv).
+\]
+To certify $Q>0$, write $p(s)=c_0+2\sum_j c_j T_j(2s-1)$.
+If $p(s)=\sum_{j=0}^{20}a_js^j$, its degree-twenty Bernstein
+coefficients are $d_i=\sum_{j\le i}a_j\binom ij/\binom{20}j$.
+Bisect each interval until all coefficients are strictly positive,
+computing the two child vectors by de Casteljau subdivision at $1/2$.
+The exact recursion has 51 terminal intervals and maximum depth 12.
+The complete integer inputs and rational recursion appear in
+\texttt{spline\_certificate.py}. The density $\widehat h/(2\pi)$
+is thus nonnegative, has mass one by Fourier inversion at zero, and
+decays as $O((1+|z|)^{-4})$. It satisfies the hypotheses of positive
+spectral averaging, including a finite second moment.
+
+For the integral certificate, use
+\[
+ B(v)=\tfrac16\sum_{j=0}^4(-1)^j\binom4j(v+2-j)_+^3 .
+\]
+All moments $M_n=\int_0^{11/5}x^n h(x)\,dx$ are rational.
+The odd Taylor polynomial for $e^{-x}$ through degree 19 gives
+\[
+ H(1)-PH(0)\ \ge \sum_{n=0}^{19}\frac{(-1)^n M_n}{n!}-P M_0
+ =\frac{19471650636255333869224218735201881536933525651}
+ {134645929491420621001728000000000000000000000000}.
+\]
+The right side exceeds $0.14461373403$. Its reciprocal multiplied by
+$G$ is less than $6.168703175$, which proves the claim.
+
+For the tilted comparison take $a=9/10000$, $W=1000/6163$, and
+$v=a/W$. The corresponding margin obeys
+\[
+ H(1-v)-PH(-v)-WG>3.00\cdot10^{-6}.
+\]
+Here one uses the same lower Taylor polynomial for $e^{-(1-v)x}$.
+For $e^{vx}$ an upper bound for the integrated remainder after degree
+19 is $v^{20}M_{20}/[20!(1-11v/105)]$, by the ratio bound on the
+positive Taylor terms. The displayed margin yields the trial
+reciprocal $6.163$ whenever the tilted signed-disk comparison is
+available.

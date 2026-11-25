@@ -1,0 +1,122 @@
+\section{Exploratory note on prior strips and an exponential tilt}
+This note records a route to a further numerical improvement. It is
+separate from the proved cosine bound. Its independent computation
+checks the last integral conditionally on the analytic comparison below.
+
+\paragraph{The normalization.}
+Write $L=\log|T|$, $s=1+u/L+i\ell T$, with $u>0$ fixed, and consider a
+real compactly supported autocorrelation $h$ as in the preceding section.
+Suppose that the standard factors at positive frequency having positive
+weight in the amplifier have no zero with
+$(1-\beta)L<a$ at distance at most $1$ from $\ell T$, uniformly for
+all sufficiently large $T$. Choose the inequality with a fixed margin.
+For $W>0$, set
+$q(x)=e^{(u+a)x}h(Wx)$ for $x\ge0$ and extend it evenly.
+Then $q\ge0$ and $q(0)=1$. At real abscissa $1+u/L$ the normalized
+weighted Euler sum is finite and all prime coefficients still have the
+original signs. The kernel for a zero $\rho$ is
+\[
+ K_q(s-\rho)= L\int_0^\infty q(x)e^{-L(s-\rho)x}\,dx .
+\]
+Its real part is nonnegative for the zeros in the indicated disk:
+the effective real argument of the Laplace transform of $h(Wx)$ is
+$L(1-\beta)-a\ge0$. This follows from positive definiteness after
+multiplication by $e^{-v|x|}$ with $v\ge0$. The main target contributes
+$L H((w-a)/W)/W$ when $w=L(1-\beta)$; the static pole contributes
+$L H(-a/W)/W$.
+
+\paragraph{A comparison with the ordinary disk estimate.}
+The Fourier density $d\nu(v)=\widehat q(v)\,dv/(2\pi)$ gives a signed
+finite measure of total mass one. For the cosine profile, $q$ is
+piecewise twice continuously differentiable with bounded first derivative
+and integrable second derivative on the positive half-axis. The even
+extension can have a corner at zero. Two integrations by parts show
+$|d\nu(v)|\ll(1+|v|)^{-2}\,dv$. For $\Re z>0$ they also give the
+uniform estimate
+\[
+              |K_q(z)-z^{-1}|\le
+       \frac{|q'(0+)|+\|q''\|_{L^1(0,\infty)}}{L|z|^2}.
+\]
+An approach to retaining the Weyl cost is to average the full Hadamard
+identity over $s+iv/L$ using $\nu$, and subtract the unweighted
+Hadamard identity. In the difference, every zero replaces the simple
+pole by $K_q(z)-1/z$. For any fixed $\eta>0$, all zeros with
+$|s-\rho|\ge\eta$ then cost $O_{\eta}(1)$: compare
+$|s-\rho|^{-2}$ to $|2+i\ell T-\rho|^{-2}$ and use the positive
+Hadamard identity at real part $2$, which bounds the latter sum by
+$O(L)$. For each fixed $T$ absolute Fubini against $|\nu|$ follows
+from the same positive identity at $1+u/L$, Euler absolute convergence
+and $\int \log(2+|v|)\,d|\nu|(v)<\infty$.
+Each shifted gamma term changes by $o(L)$ since $\nu$ has mass one.
+For $|v|\le L|T|/2$ and $\ell\ge1$, the two digamma real parts
+are $\tfrac12\log|T|+O(1)$. On the complement the variation contributes
+$O((\log(2+L|T|)+L)/(L|T|))$ using the displayed density decay and
+the elementary uniform logarithmic digamma bound. Fixed static terms
+have bounded gamma average. Poles are kept as exact kernels.
+
+In the original, unaveraged disk Poisson--Jensen upper bound, retain
+only zeros with $|s-\rho|<\eta<1/4$. The terms for the other
+in-disk zeros have a favorable sign before the difference is added.
+The radius-$R$ correction for the remaining zeros is
+$O(\eta L)$ for $R\in[1/4,1/3]$, because the standard local count is
+$O(L)$. After combining with the signed difference, the test kernel
+is nonnegative at every retained zero. Let $T\to\infty$ and then
+$\eta\downarrow0$. This comparison leads to the proposed inequality
+\[
+           H((w-a)/W)-P H(-a/W)\le WG .
+\]
+The order of operations is important: signed averaging of the disk
+upper bound itself does not preserve that bound.
+
+\paragraph{Scalar and static terms.}
+For signed static coefficients, each fixed completed factor is
+nonvanishing in a fixed punctured neighborhood of $1$. Remove any
+actual pole first. The integrated regular contribution is $O(1)$ by
+the far-zero difference estimate and the original bounded logarithmic
+derivative. At high scalar frequencies, including any negative-weight
+terms, an absolute bound $o(L)$ for the real part of the weighted scalar logarithmic
+derivative is needed. For the Riemann zeta function the usual
+Vinogradov--Korobov width and log-derivative bound provide this:
+$|\Re(\zeta'/\zeta)(1+u/L+it)|=o(L)$ uniformly when
+$|t|\asymp |T|$, by the classical bounds in the zero-free region.
+On $|v|>L|T|/2$ absolute convergence at $1+u/L$ costs $O_u(L)$,
+and the variation there is $O((L|T|)^{-1})$. The high scalar poles
+are part of this direct bound. For fixed Hecke characters use the real-part estimate in the
+fixed-rank argument, from Coleman, \emph{A zero-free region for the
+Hecke $L$-functions}, Theorem~2, and the positive Hadamard comparison
+there. The estimate is uniform for $|t|\asymp|T|$ because $\log|t|=L+O(1)$.
+
+\paragraph{A numerical test in the elliptic case.}
+For an elliptic symmetric power of index $m\ge1$, the auxiliary
+isobaric triple $\{0,m,2m\}$ of the earlier zero-free argument has
+three static poles and target multiplicity four. The total degree at
+shifted height is $4(m+1)^2$. Ordinary Stirling plus prime positivity
+gives $4/(u+w)\le3/u+2(m+1)^2+o(1)$, where the variables are scaled by
+$L$. Optimizing over $u$ yields the prior width
+$2(1-\sqrt{3/4})^2/(m+1)^2$. For $1\le m\le5$ this exceeds
+$0.0009$ by a strict margin. The uniform fixed-rank theorem gives
+stronger priors of $1/(6.348n)$ for rank $n$.
+The degree-twenty amplifier has largest moving rank six and the
+original quartic square has largest moving rank four. Thus $a=0.026$
+is available for the former and $a=0.03937$ for the latter.
+
+For any fixed $k,S>0$ with $kS<\pi$, set $c=\cos(kS)$ and take
+$g(x)=(\cos(kx)-c)\mathbf1_{[-S,S]}(x)$. For $0\le t\le2S$ its
+unnormalized autocorrelation is
+\[
+ B(t)=(2S-t)\left(c^2+\tfrac12\cos kt\right)
+       +\frac{\sin(k(2S-t))}{2k}
+       -\frac{2c}{k}\{\sin(kS)+\sin(k(S-t))\}.
+\]
+This follows by integrating the product of the two cosines on
+$[-S,S-t]$. Normalize by $B(0)$ and compute $H$ over $[0,2S]$.
+For degree twenty take $k=2.35698$, $S=0.78646$, $a=0.026$ and
+$W=1/6.005086$. The independently enclosed scalar surplus
+$H(1-a/W)-PH(-a/W)-WG$ exceeds $2.126\cdot10^{-8}$.
+For the quartic square take $k=2.28308$, $S=0.78777$, $a=0.03937$
+and $W=1/5.943825$. Its corresponding surplus exceeds
+$2.635\cdot10^{-8}$. The check uses rational parameters and interval
+quadrature of entire functions on $[0,1]$.
+See \texttt{tilted\_check.py}. These scalar computations are separate
+from the analytic comparison above. That comparison has a human
+argument and has not been translated to Lean here.

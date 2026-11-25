@@ -1,0 +1,99 @@
+\section{A spectral averaging law for the explicit polynomial}
+\label{sec:concrete-spectral-window}
+
+Let $g$ be a nonzero, continuous, nonnegative real function of compact
+support on $\mathbb R$. Write
+\[
+ C(x)=\int_{\mathbb R}g(v)g(v-x)\,dv,\qquad
+ m=C(0),\qquad
+ \widehat g(\xi)=\int_{\mathbb R}g(v)e^{-2\pi i v\xi}\,dv .
+\]
+The measure $|\widehat g(\xi)|^2\,d\xi/m$ has total mass one by
+Plancherel's theorem. For $b>0$, let $\mu_b$ be its pushforward under
+$\xi\mapsto2\pi\xi/b$. Convolution and Fourier inversion give
+\begin{equation}
+ \label{eq:constructed-window}
+ \int_{\mathbb R}\cos(zx)\,d\mu_b(z)=\frac{C(x/b)}m .
+\end{equation}
+Indeed, $C=g*g(-\cdot)$ and $\widehat C=|\widehat g|^2$ is integrable.
+The continuity of $C$ justifies inversion at every point.
+Since $g$ is nonnegative, $C(x)\geq0$ for every real $x$.
+
+In this application,
+\[
+ g(v)=\mathbf 1_{[0,1]}(v)\,v(1-v)
+       \bigl(1+\tfrac52v(1-v)\bigr).
+\]
+The endpoint values of the polynomial vanish, so $g$ is continuous.
+The two copies of the support overlap on an interval of length
+$1-|u|$ when $|u|\leq 1$. Direct integration gives
+$m=199/2520$ and
+\[
+ H(u)=C(u)/m=
+ \begin{cases}
+ h(|u|),&|u|\leq1,\\
+ 0,&|u|>1,
+ \end{cases}
+\]
+where
+\[
+ h(u)=\frac{(1-u)^3}{199}
+  (25u^6+75u^5-120u^4-560u^3+204u^2+597u+199).
+\]
+Thus the nonnegative physical window in the Euler coefficients and
+the probability law on the shifted ordinates are recovered from the
+same polynomial.
+
+Suppose $\sum_n|w_n|<\infty$ and let $\theta_n,y_n$ be real.
+Symmetric shifts by $\pm z$ have identical nonnegative weights.
+The sum of their cosines divided by two is
+$\cos\theta_n\cos(zy_n)$. Absolute convergence therefore gives
+\[
+ \int \sum_n w_n
+ \frac{\cos(\theta_n+zy_n)+\cos(\theta_n-zy_n)}{2}\,d\mu_b(z)
+ =
+ \sum_n w_n\cos\theta_n\,H(y_n/b).
+\]
+For $t>0$ put $K_t(z)=t/(t^2+z^2)$. Integrating
+$e^{(-t+iz)x}$ over $x>0$ and taking the real part gives
+$K_t(z)=\int_0^\infty e^{-tx}\cos(zx)\,dx$.
+The absolute value of the integrand is bounded by $e^{-tx}$.
+Hence Fubini and \eqref{eq:constructed-window} give the exact identity
+\[
+ A_b(t):=\int K_t(z)\,d\mu_b(z)
+ =\int_0^b e^{-tx}h(x/b)\,dx
+ =b\int_0^1 h(u)e^{-btu}\,du.
+\]
+For each real $p$ the right side is continuous down to $t=0$, so
+\begin{equation}
+ \lim_{t\downarrow0}\bigl(A_b(1+t)-pA_b(t)\bigr)
+   = b\int_0^1 h(u)\bigl(e^{-bu}-p\bigr)\,du.
+ \label{eq:computed-limit}
+\end{equation}
+The zero-side and the pole-side terms thus use the same probability law.
+
+The frequency law also has an explicit second moment. Expanding the
+polynomial at zero yields $h(u)=1-(990/199)u^2+O(u^3)$ for $u\geq0$.
+The functions
+\[
+ F_s(z)=2\frac{1-\cos(sz)}{s^2}
+       =z^2\left(\frac{\sin(sz/2)}{sz/2}\right)^2
+\]
+are nonnegative, are bounded by $z^2$, and converge to $z^2$ as
+$s\downarrow0$. Their integrals converge to $1980/(199b^2)$ by
+\eqref{eq:constructed-window}. Fatou's lemma gives integrability of
+$z^2$, after which dominated convergence gives equality,
+\[
+ \int_{\mathbb R}z^2\,d\mu_b(z)=\frac{1980}{199b^2}.
+\]
+In particular, the probability of a shift larger in absolute value
+than $M>0$ is at most $1980/(199b^2M^2)$. Logarithmic conductor
+errors are integrable against these laws.
+More explicitly, put $c=2+|y|$. The inequality $\log q\le q-1$ for
+$q>0$, applied with $q=(2+|y+az|)/c$, and the triangle inequality
+give
+\[
+ \int\log(2+|y+az|)\,d\mu_b(z)
+ \le \log c+\frac{|a|}{c}\left(1+\frac{1980}{199b^2}\right),
+\]
+where $|z|\le1+z^2$ was used in the last step.

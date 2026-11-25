@@ -1,0 +1,4 @@
+116 Lean source modules; 4839921 bytes.
+No sorry/admit placeholders, explicit sorryAx, axiom declarations or native_decide invocations in the local Lean sources.
+The main endpoint and the two polynomial certificates have separate #print axioms reports in main-theorems.txt.
+The scope of the explicit mathematical hypotheses is documented in the manuscript and README.

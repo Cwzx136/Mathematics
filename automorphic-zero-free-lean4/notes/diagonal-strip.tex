@@ -1,0 +1,129 @@
+\section{A self-contained bootstrap for a single moving factor}
+\label{sec:diagonal-strip}
+
+\paragraph{The diagonal test.}
+Let $w_*$ denote the lower limit of $(1-\Re\rho)\log|\Im\rho|$
+over the zeros of a fixed automorphic standard function as their height
+tends to infinity. Suppose a prime-positive amplifier contains only this
+function at moving nonscalar frequencies, with unit total target
+weight, static pole coefficient $P$, and disk cost $G$.
+Assume a preliminary zero-free estimate gives $w_*>0$ and that the
+tilted disk comparison of the preceding note holds for this amplifier.
+Then for every nonnegative normalized compact autocorrelation $h$,
+\[
+       w_* G\ge H(0)-P H(-1),\qquad
+       H(z)=\int_0^\infty e^{-zt}h(t)\,dt.
+\]
+Indeed, if $w_*=\infty$ there is nothing to prove. Otherwise choose
+zeros attaining the finite lower limit. For every $0<a<w_*$ there
+is a strictly positive margin between $a$ and the scaled displacements
+of all sufficiently high zeros. At height $\ell T+O(1)$ the ratio
+of its logarithm to $\log|T|$ tends to one. Hence the same prior
+holds throughout every required disk. Set $W=w_*$ in the tilted
+comparison. It gives
+$w_*G\ge H((w_*-a)/w_*)-P H(-a/w_*)$. The compact support makes
+$H$ entire and allows $a\uparrow w_*$. Thus one uses the true lower
+limit as a boundary; no sequence of revised constants is required.
+
+\paragraph{An essentially self-dual representation.}
+Let $K$ have degree $r$ and $\pi$ be a fixed essentially self-dual
+unitary cuspidal representation of $\mathrm{GL}_n(\mathbb A_K)$.
+Use the real trace $X$ after extracting a square root of the
+essential twist locally, and the corresponding phase $y=\cos\phi$.
+For $\alpha=1/\sqrt8$, the square
+\[
+          \alpha X^2+Xy+y^2/(4\alpha)
+             =(2\alpha X+y)^2/(4\alpha)
+\]
+has static Rankin--Selberg coefficient $\alpha$, a moving standard
+coefficient one, and static scalar coefficient $1/(8\alpha)$.
+The scalar Fourier term at twice the height costs $o(\log|T|)$ by the
+fixed-character Hecke estimate. Thus $P=1/\sqrt2$ and $G=nr/4$ by
+convexity. Local factors at the omitted finite set of places contribute
+$O(1)$, using their strict unitary exponent bounds and boundedness
+of the compact weight. The fixed-rank theorem supplies $w_*>0$.
+
+For $0<\theta<\pi/2$ put
+\[
+ P_0(\theta)=\frac{1-\theta\cot\theta}{\sin^2\theta}.
+\]
+Heath-Brown, \emph{Zero-free regions for Dirichlet $L$-functions},
+Proc.~Lond.~Math.~Soc.~64 (1992), Lemmas~7.1 and~7.5 with scale one,
+gives a nonnegative compact autocorrelation for which
+$H(0)-P_0(\theta)H(-1)=P_0(\theta)\cos^2\theta$. This normalization
+divides his function by its value at zero. Choosing
+$\theta=1.3221231$ gives $P_0(\theta)>1/\sqrt2$ and
+$P_0(\theta)\cos^2\theta>0.0428324150$.
+Since $H(-1)\ge0$, the diagonal test therefore implies, under the
+tilted disk comparison,
+\[
+        \min(\beta,1-\beta)>
+          \frac1{5.83671\,nr\log|T|}
+        \qquad(|T|\text{ sufficiently large}).
+\]
+The strict margin in the numerical comparison allows strict exclusion.
+Functional-equation duality gives the other edge.
+
+\paragraph{Elliptic power priors.}
+For a fixed non-CM elliptic curve over $\mathbb Q$, use
+$X=U_m(\cos\vartheta)$, the symmetric-power character, at a good
+prime power. An amplifier requiring only this moving nonscalar can
+use any additive majorants $A(X)+B(\cos\phi)$ of $|X\cos\phi|$.
+Take $p=3/2$, $q=3$. Young's inequality bounds that product by
+$t|X|^p/p+t^{-q/p}|\cos\phi|^q/q$ for $t>0$. Approximate each
+continuous summand uniformly from above by an ordinary polynomial
+on its compact range. On expanding in the $U_j$ characters and cosine
+harmonics, all extra nonscalar characters are static. Their coefficients
+may have either sign: each nontrivial fixed symmetric power is
+holomorphic and nonzero at one. The poles come from the two constant
+polynomial coefficients. These coefficients are the integrals against
+Haar measure on $\mathrm{SU}(2)$ and on the circle, respectively,
+by character and cosine orthogonality. This is an algebraic identification
+of the constant term; no equidistribution theorem is necessary.
+At the finitely many bad primes the fixed approximating polynomials
+give bounded logarithmic derivatives in the weighted Euler sum.
+The approximants are fixed first and the ordinate then tends to
+infinity. Taking the infimum over $t$ shows that the pole can approach
+arbitrarily closely from above
+\[
+ P_m=\left(\frac2\pi\int_0^\pi
+    \left|\frac{\sin((m+1)v)}{\sin v}\right|^{3/2}
+        \sin^2 v\,dv\right)^{2/3}
+       \left(\frac4{3\pi}\right)^{1/3} .
+\]
+Here $4/(3\pi)$ is the circular mean of $|\cos\phi|^3$.
+The coefficient of the target $U_m\cos\phi$ is exactly one. The
+preliminary strip can be obtained from the preceding fixed-rank result.
+Charge the target the Nelson exponent
+$G=(n/4)(1-2/(3n^5-2n^4-n^2))$ with $n=m+1$.
+One can let the arbitrarily small slack in the growth exponent tend
+to zero after the height tends to infinity.
+
+The following rows use strict upper budgets $P_m<P$ and angles with
+$P<P_0(\theta)$. The last column rounds the certified lower limit
+$P_0(\theta)\cos^2\theta/G$ downwards.
+\[
+\begin{array}{c|c|c|c}
+ m&P&\theta&\text{usable scaled prior}\\\hline
+ 2&0.6881 &1.299692&0.0660323\\
+ 3&0.68308&1.293575&0.0512050\\
+ 5&0.6790 &1.28855 &0.0351170
+\end{array}
+\]
+The interval calculation in \texttt{diagonal\_prior.py} encloses the
+integral by $65536$ subintervals on $[0,\pi/2]$, using symmetry and
+$|U_m|\le m+1$ on the first subinterval. On the others the sine
+quotient is bounded by interval evaluation. For the original quartic
+square one may thus take $a=0.051$ throughout. With $k=2.23970$,
+$S=0.77992$, and $W=1/5.874730$, the positive scalar surplus exceeds
+$2.061\cdot10^{-8}$. For the degree-twenty choice, $a=0.035$,
+$k=2.32689$, $S=0.78016$, and $W=1/5.950712$, the surplus exceeds
+$2.055\cdot10^{-8}$. The preceding comparison for $H$ gives both
+elliptic consequences.
+
+\paragraph{Verification scope.}
+The tilted disk comparison, the analytic assembly with automorphic
+functions and the uniform approximation argument for the static and
+scalar majorants are human proofs. The enclosed constants and integrals
+are independently checked by outward rounding. The diagonal limiting
+implication and the pointwise Young inequality have direct Lean proofs.

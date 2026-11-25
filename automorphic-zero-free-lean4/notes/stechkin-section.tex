@@ -1,0 +1,68 @@
+\section{An optimal subtraction and an explicit elliptic consequence}
+
+Set $m=\sigma-\tfrac12>\tfrac12$, $x=\beta-\tfrac12$, and let $t$ be the vertical distance from the evaluation point to a zero. The paired real logarithmic-derivative kernel is
+\[
+ K_m(x,t)=\frac{m-x}{(m-x)^2+t^2}
+             +\frac{m+x}{(m+x)^2+t^2}.
+\]
+It accounts for a zero together with its horizontal reflection. The classical uniform subtraction with $\kappa=1/\sqrt5$ is due to Stechkin; see H.~Kadiri, \emph{Explicit zero-free regions for Dedekind zeta functions}, Lemma~2.1, arXiv:1106.1868. Here we optimize over positive mixtures at each fixed real abscissa.
+
+\paragraph{Theorem.}
+Let $N^2=2m^2+m+\tfrac14$, $N>0$, and $k=m/N$. Then
+\[
+ K_m(x,t)-kK_N(x,t)\ge0
+ \quad (|x|\le\tfrac12,\ t\in\mathbb R).
+\]
+For $0\le x\le\tfrac12$, at $t=0$ the difference is at least $1/(m-x)$. Equality holds at $x=\tfrac12$. The total weight of every finite nonnegative mixture $\sum_i w_iK_{n_i}$, with $n_i>\tfrac12$, satisfying these two requirements is at most $k$. In particular, $k>1/\sqrt5$ for $\sigma>1$.
+
+\paragraph{Proof.}
+For $X=m^2-x^2+t^2$ and $C=4x^2t^2$, one has $K_m=2mX/(X^2+C)$. Put $Y=N^2-x^2+t^2$. Since $Y\ge X>0$, the kernel comparison reduces to $XY\ge C$. Indeed
+\[
+ XY-C=(m^2-x^2)(N^2-x^2)+(m^2+N^2-6x^2)t^2+t^4\ge0.
+\]
+Here $m^2+N^2\ge3/2$ and $x^2\le1/4$. At zero distance the stronger inequality reduces to $2m(m+x)\le N^2-x^2$. The margin equals $(1/2-x)(2m+1/2+x)$, which vanishes at $x=1/2$. Finally $5m^2-N^2=(m-1/2)(3m+1/2)>0$.
+
+For the converse, at $x=0$ multiply the first inequality by $t^2/2$ and let $|t|\to\infty$. This gives $\sum_i w_i n_i\le m$. At $x=1/2,t=0$ the stronger inequality gives
+\[
+ \sum_i w_i f(n_i)\le \frac1{m+1/2},\qquad
+ f(v)=\frac1{v-1/2}+\frac1{v+1/2}.
+\]
+The graph of $f$ lies above its tangent at $N$, by convexity of $1/v$ on $v>0$. Taking $A=-f'(N)>0$, multiplying $f(N)+AN\le f(n_i)+An_i$ by $w_i$, and summing gives
+\[
+ (f(N)+AN)\sum_iw_i\le(m+1/2)^{-1}+Am=k(f(N)+AN).
+\]
+In the last step we used the exact boundary identity $kf(N)=(m+1/2)^{-1}$. This also proves that the unshifted zeta pole and its companion contribute exactly their singular charge $P/(\sigma-1)$ after subtraction. The proofs in \texttt{Stechkin.lean} implement the limiting argument by a finite error bound, so they require no interchange of an infinite sum and a limit.
+
+\paragraph{Corollary for the original conductor-eleven function.}
+Write $L=\log|T|$. Under the explicit-formula and elliptic local-factor inputs of the conductor-eleven paper, every nontrivial unitary zero $\beta+iT$ of $11.\mathrm{a1}$ with $|T|\ge262144$ satisfies
+\[
+ \min(\beta,1-\beta)>
+ \frac1{13.518 L}+\frac1{25L^2}>
+ \frac1{13.518 L-7}.
+\]
+
+\paragraph{Proof.}
+In the archived five-frequency square take $P=413/900$, $g=9161/3600$, $b=0.15535$, $u=b/L$, $m=1/2+u$. Here $u\le1/50$. The square and Stechkin pair argument give
+\[
+ \frac1{u+d}\le P/u+(1-k)gL+(1-k)(M-P)+0.004,
+ \qquad d=1-\beta,
+\]
+on the right of the critical line. The optimal abscissa $N+1/2$ is between $\sigma$ and $2$. The archimedean charge $M=C-g\log(2\pi)$ uses the same reference constant $C$ as the previous paper, in which $+P$ paid for the regular static pole. The exact companion cancellation removes this $+P$. The previous archimedean estimates apply unchanged for both abscissae. The included outward-rounded evaluation gives $M<-0.714$ and bounds the combined shifted gamma and regular-pole errors by $0.000029$. All finite-place inequalities and the applicability of the Hadamard identity to these functions are analytic inputs.
+
+We give details of the small gain, since it applies to the original function at each specified ordinate. For $0<u\le0.02$,
+\[
+ 1/\sqrt5+u/3\le k\le0.46.
+\]
+Indeed $m\le0.52$, $N^2\le21/16$, and comparison of squares gives $k\le0.46$. The identity
+$5N^2(k+1/\sqrt5)(k-1/\sqrt5)=2u+3u^2$, together with
+$5N^2(k+1/\sqrt5)<6$, proves the lower bound. Thus $(1-k)(M-P)+0.004\le-0.629$.
+Put $k_0=0.44721359<1/\sqrt5$ and $q=P+(1-k_0)gb$. After multiplication by $u(u+d)$, the preceding bound gives
+\[
+ u\le(q-y)(u+d),\qquad y=u(0.629+gb/3).
+\]
+In particular $q-y>0$. Since $(q-y)(1/q+y/q^2)=1-y^2/q^2\le1$,
+\[
+ d\ge\frac{b/q-b}{L}+
+         \frac{b^2(0.629+gb/3)}{q^2 L^2}.
+\]
+The two rational coefficients exceed $1/13.518$ and $1/25$, respectively. For $L\ge62/5$, clearing positive denominators verifies the last displayed improvement of the corollary. Reflection gives the opposite edge. In \texttt{StechkinWidth.lean}, the explicit formula is the named hypothesis \texttt{OriginalMajorant}. The real algebra, including both last rational comparisons, is proved by the kernel. The gamma evaluation is replayed by \texttt{elliptic\_reference.py}. The result improves the finite-height width and leaves its leading coefficient unchanged.
